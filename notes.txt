@@ -34,7 +34,30 @@ JSX = JavaScriptXML, because HTML is XML
 Allows use of HTML type Syntax in JavaScript files
 
 -- React Components
+React component are functions that return JSX code
 Use uppercase starting functions for custom made objects/functions
 React Components can only return one root element i.e. a div that contains all elements
 'cntl' + 'shift' + 'i' in vs code auto formats the document
 Apply CSS classes with the tag className="" instead of classes
+use {} to insert dynamic components, function or other js expressions
+React components end with an export statement, the use of default sets the standard return if there are multiple
+
+-- Passing Data via Props
+pass the 'props' key word into the component function then you insert as dynmanic components
+for example the React Component is used with passed values (properties)    
+<ExpenseItem 
+    title={expenses[0].title}
+</ExpenseItem>
+then in the component the property is referenced as the below
+<h2>{props.title}</h2>
+data can be passed through multiple layers of props to subcomponents
+
+-- Composition (children props)
+Composition rendering a user interface from multiple components
+Can create custome HTML componets and like custom divs by creating them and passing props.children
+<div className="card">{props.children}</div> // is a custom div with its own css
+to use the css properties of both the custom class and pass the underlying classes use
+const classes = 'card ' + props.className; // pass this into the className of the custom component
+// make sure to remember white space between card and the + in the ''
+
+
