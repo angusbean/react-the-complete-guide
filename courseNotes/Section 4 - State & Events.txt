@@ -1,0 +1,33 @@
+Section 4 - State & Events
+
+-- Event Listeners and Event Handlers (adding onProps)
+assign event listener to HTML element
+<button onClick={() => {console.log('button clicked')}}>Change Title</button>
+better to point to a separate function i.e.
+<button onClick={clickHandler}>Change Title</button>
+functions for events should end in Handler i.e. xxxHandler
+
+-- React State (useState)
+for the UI to react to events you need to modify state with React libraries useState
+import React, { useState } from 'react';
+useState is a React hook, they are used only in React functions
+const [title, setTitle] = useState(props.title);
+const clickHandler = () => {
+    setTitle('Updated!');
+};
+
+-- Listening for User Input
+listen for user input via form example
+use in the form input
+<input type='text' onChange={titleChangeHandler}/>
+then in the event handler function
+const titleChangeHandler = (event) => {
+    console.log(event.target.value);
+  }
+
+-- Working with Multiple States
+you can set the state as one object or multiple different states in one component
+when you update state and depend on previous state, you should pass as func
+setUserInput((prevState) => {
+    return {...prevState, enteredTitle: event.title.value}
+});
